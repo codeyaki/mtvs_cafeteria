@@ -1,0 +1,4 @@
+class MenuDTO{
+    menuCode;
+    menuName;
+}
