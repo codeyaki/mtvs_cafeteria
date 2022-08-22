@@ -8,8 +8,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
-const WeekMenu = require('');
-app.use('/week-menus', WeekMenu);
+const WeekMenuRouter = require('./src/routes/week-menu-route');
+app.use('/week-menus', WeekMenuRouter);
 
 const port = 3030;
 const host = "0.0.0.0";

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const WeekMenuController = require('../controllers/week-menu-controller');
 
 
+router.get('/', WeekMenuController.selectWeekMenuList);
 
-router.get('/',);
+module.exports = router;

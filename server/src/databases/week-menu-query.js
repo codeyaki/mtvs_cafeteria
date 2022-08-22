@@ -10,3 +10,15 @@ exports.selectMenuPlanList = () => {
            AND A.AMPM = ?
     `
 }
+
+exports.selectWeekPlan = () => {
+    return `
+        SELECT
+               *
+          FROM TBL_WEEKPLAN A
+         ORDER BY A.WEEK_END DESC
+         LIMIT ?
+        OFFSET ?
+    `;
+
+}
