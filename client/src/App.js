@@ -1,8 +1,17 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Layout from './layouts/Layout';
+import Main from './pages/Main';
 
 
 function App() {
   return (
-    <h1>리액트 앱 테스트</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Main/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
