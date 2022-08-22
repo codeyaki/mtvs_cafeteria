@@ -1,4 +1,4 @@
-import MenuList from './../components/lists/MenuList';
+import MenuList from '../components/lists/MenuList';
 
 function Menus(){
 
