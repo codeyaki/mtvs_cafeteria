@@ -3,7 +3,6 @@ class DayplanDTO{
     weekplanCode;
     amPm;
     date;
-
     constructor(resultMap) {
         this.dayplanCode = resultMap.DAYPLAN_CODE;
         this.weekplanCode = resultMap.WEEKPLAN_CODE;
