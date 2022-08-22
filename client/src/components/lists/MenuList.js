@@ -15,11 +15,13 @@ function MenuList(){
 
     return menus && (
         <article>
-            <button></button>
             <h1>메뉴 목록</h1>
             <ul>
                 {menus?.map(menu => <li key={menu.menuCode}>{menu.menuName}</li>)}
             </ul>
+            <div>
+                
+            </div>
         </article>
 
     );
