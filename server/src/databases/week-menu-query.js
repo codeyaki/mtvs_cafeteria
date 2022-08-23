@@ -1,4 +1,3 @@
-
 exports.selectMenuPlanList = () => {
     return `
         SELECT
@@ -9,16 +8,4 @@ exports.selectMenuPlanList = () => {
          WHERE A.DATE = ?
            AND A.AMPM = ?
     `
-}
-
-exports.selectWeekPlan = () => {
-    return `
-        SELECT
-               A.*
-          FROM TBL_WEEKPLAN A
-         ORDER BY A.WEEK_END DESC
-         LIMIT ?
-        OFFSET ?
-    `;
-
 }
