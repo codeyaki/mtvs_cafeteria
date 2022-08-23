@@ -3,7 +3,8 @@ const HttpStatus = require('http-status');
 exports.successFoundList = (res, url, count, offset, limit, results) => {
     return res.status(HttpStatus.OK).json({
         count: count,
-        next: url+'/?offset=' + offset + "$limit=" + limit,
+        nextWeek: offset-1 > 0? 'http://' + url + '/?offset=' + (offset-1) + "$limit=" + limit : null, 
+        previousWeek: 'http://' + url + '/?offset=' + (offset+1) + "$limit=" + limit,
         results: results
     });
 }

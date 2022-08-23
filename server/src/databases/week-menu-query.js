@@ -11,10 +11,6 @@ exports.selectMenuPlanList = () => {
     `
 }
 
-exports.countWeekPlan = () => {
-    return `SELECT COUNT(*) FROM TBL_WEEKPLAN`;
-}
-
 exports.selectWeekPlan = () => {
     return `
         SELECT

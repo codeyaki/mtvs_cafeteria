@@ -9,7 +9,7 @@ exports.selectWeekMenuList = (connection, requestEntity) => {
                 console.log('err : ', err);
                 return reject(err);
             }
-            // console.log(results);
+            console.log(results);
             
             resolve(results);
         })
