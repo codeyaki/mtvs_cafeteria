@@ -6,10 +6,10 @@ exports.selectWeekMenuList = (requestEntity) => {
         console.log('service : ');
         console.log(requestEntity);
         const connection = getConnection();
-        const rowCount = await WeekMenuRepository.countWeekPlan(connection);
-        const weekPlanResult = await WeekMenuRepository.selectWeekMenuList(connection, requestEntity);
-        results = {};
+        let resultEntity = {count:0, results:{weekplan:{}, dayAndmenu:{}}}
+        resultEntity.count = await WeekMenuRepository.countWeekPlan(connection);
+        resultEntity.results.weekplan = await WeekMenuRepository.selectWeekMenuList(connection, requestEntity);
         connection.end();
-        resolve(results);
+        resolve(resultEntity);
     })
 }

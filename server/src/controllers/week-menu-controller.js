@@ -5,6 +5,7 @@ const PrintError = require('../printer/print-error');
 
 
 exports.selectWeekMenuList = async (req, res, next) => {
+    const url = req.headers.host;
     const offset = parseInt(req.query.offset || '0');
     const limit = parseInt(req.query.limit || '1');
     const requestEntity = {
@@ -13,6 +14,6 @@ exports.selectWeekMenuList = async (req, res, next) => {
     }
     console.log('controller : ');
     console.log(requestEntity);
-    const results = await WeekMenuService.selectWeekMenuList(requestEntity);
-    return PrintSuccess.successFound(res, results);
+    const resultEntity = await WeekMenuService.selectWeekMenuList(requestEntity);
+    return PrintSuccess.successFoundList(res, url, resultEntity.count, offset+1, limit, resultEntity.results);
 }
