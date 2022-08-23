@@ -1,9 +1,9 @@
 const HttpStatus = require('http-status');
 
-exports.successFound = (res, results) => {
+exports.successFoundList = (res, url, count, offset, limit, results) => {
     return res.status(HttpStatus.OK).json({
-        status: HttpStatus.OK,
-        message: 'data found successfully',
+        count: count,
+        next: url+'/?offset=' + offset + "$limit=" + limit,
         results: results
     });
 }
