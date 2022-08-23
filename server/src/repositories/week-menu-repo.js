@@ -23,7 +23,7 @@ exports.countWeekPlan = (connection) => {
                 console.log(err);
                 return reject(err);
             }
-            resolve(results);
+            resolve(results[0]['COUNT(*)']);
         })
     })
 }
