@@ -1,11 +1,11 @@
 const HttpStatus = require('http-status');
 
-exports.successFoundList = (res, url, count, offset, limit, results) => {
+exports.successFoundList = (res, url, offset, limit, resDTO) => {
     return res.status(HttpStatus.OK).json({
-        count: count,
-        nextWeek: offset-1 > 0? 'http://' + url + '/?offset=' + (offset-1) + "$limit=" + limit : null, 
-        previousWeek: 'http://' + url + '/?offset=' + (offset+1) + "$limit=" + limit,
-        results: results
+        count: resDTO.count,
+        nextWeek: offset-1 > 0? 'http://' + url + '/week-menus' + '?offset=' + (offset-1) + "&limit=" + limit : null, 
+        previousWeek: 'http://' + url + '/week-menus' + '?offset=' + (offset+1) + "&limit=" + limit,
+        results: resDTO.results
     });
 }
 

@@ -1,16 +1,22 @@
+const { dateFormat } = require("../../utility/date-format");
+
+
 class DayplanAndMenuDTO{
     dayplanCode;
-    weekplanCode;
     amPm;
     date;
-    // menu = [5]
-    constructor(resultMap) {
+    menuDTO;
+
+    setDayplan(resultMap){
         this.dayplanCode = resultMap.DAYPLAN_CODE;
-        this.weekplanCode = resultMap.WEEKPLAN_CODE;
-        this.amPm = resultMap.amPm;
-        this.date = resultMap.date;
-    }
-    
+        this.amPm = resultMap.AMPM;
+        this.date = dateFormat(resultMap.DATE);
 }
 
-module.exports = DayplanDTO;
+    setMenu(menuDTO){
+        this.menuDTO = [...menuDTO];
+    }
+
+}
+
+module.exports = DayplanAndMenuDTO;

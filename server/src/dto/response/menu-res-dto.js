@@ -1,10 +1,29 @@
 class MenuResDTO{
     menuCode;
     menuName;
-    constructor(resultMap){
-        this.menuCode = resultMap.MENU_CODE;
-        this.menuName = resultMap.MENU_NAME;
+    categoryCode;
+    setMenuCode(menuCode){
+        this.menuCode = menuCode;
     }
+    setMenuName(menuName){
+        this.menuName = menuName;
+    }
+    setCategoryCode(categoryCode){
+        this.categoryCode = categoryCode;
+    }
+
+    getMenuCode(){
+        return this.menuCode;
+    }
+    
+    getMenuName(){
+        return this.menuName;
+    }
+    
+    getCategoryCode(){
+        return this.categoryCode;
+    }
+
 }
 
 module.exports = MenuResDTO;

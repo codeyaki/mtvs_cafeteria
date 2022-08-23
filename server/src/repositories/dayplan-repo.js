@@ -7,7 +7,7 @@ exports.selectDayplanList = (connection, weekplanCode) => {
                 console.error(err);
                 return reject(err);
             }
-            console.log(results);
+            // console.log(results);
 
             resolve(results);
 
