@@ -1,7 +1,8 @@
 const getConnection = require('../databases/connection');
 const WeekPlanRepository = require('../repositories/week-plan-repo');
-const WeekplanResDTO = require('../dto/single/response/weekplan-res-dto');
-const DayplanRepostitory = require('../repositories/dayplan-repo')
+const DayplanRepository = require('../repositories/dayplan-repo');
+const DayplanMenuRepository = require('../repositories/menu-dayplan-repo.js');
+const WeekplanResDTO = require('../dto/response/weekplan-res-dto');
 
 exports.selectWeekMenuList = (requestEntity) => {
     return new Promise(async(resolve, reject) => {
@@ -11,11 +12,12 @@ exports.selectWeekMenuList = (requestEntity) => {
         
         const count = await WeekPlanRepository.countWeekplan(connection);
         // 주간 계획 관련 정보 조회
-        const weekplanResult = new WeekplanResDTO(await WeekPlanRepository.selectWeekplan(connection, requestEntity));
+        const weekplanResult = await WeekPlanRepository.selectWeekplan(connection, requestEntity);
         // 주간을 토대로 일간 메뉴 정보 리스트 조회
-        const dayplanResultList = await DayplanRepostitory.selectDayplanList(connection,weekplanResult.weeekplanCode)
-        dayplanResultList.map(dayplan => {
-            console.log(dayplan)
+        const dayplanResultList = await DayplanRepository.selectDayplanList(connection,weekplanResult.WEEKPLAN_CODE);
+        await dayplanResultList.map( async (dayplan) => {
+            const menuDayplanResultList = await DayplanMenuRepository.selectDayplanMenuList(connection, dayplan.DAYPLAN_CODE);
+            console.log(menuDayplanResultList);
             
         });
 

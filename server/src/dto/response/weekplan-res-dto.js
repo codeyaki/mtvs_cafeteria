@@ -1,4 +1,4 @@
-const { dateFormat } = require("../../../utility/date-format");
+const { dateFormat } = require("../../utility/date-format");
 
 class WeekplanResDTO{
     weekplanCode;
