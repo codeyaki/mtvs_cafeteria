@@ -9,6 +9,8 @@ exports.selectWeekMenuList = (requestEntity) => {
         let resultEntity = {count:0, results:{weekplan:{}, dayAndmenu:{}}}
         resultEntity.count = await WeekPlanRepository.countWeekPlan(connection);
         resultEntity.results.weekplan = await WeekPlanRepository.selectWeekPlan(connection, requestEntity);
+        console.log(resultEntity.results.weekplan);
+
         connection.end();
         resolve(resultEntity);
     })

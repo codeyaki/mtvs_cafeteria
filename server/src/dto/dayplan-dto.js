@@ -11,3 +11,5 @@ class DayplanDTO{
     }
     
 }
+
+module.exports = DayplanDTO;

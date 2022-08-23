@@ -1,4 +1,4 @@
-exports.selectMenuPlanList = () => {
+exports.selectDayplanAndMenuPlanAndMenu = () => {
     return `
         SELECT
                *

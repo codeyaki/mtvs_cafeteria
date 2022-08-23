@@ -6,3 +6,5 @@ class MenuDTO{
         this.menuName = resultMap.MENU_NAME;
     }
 }
+
+module.exports = MenuDTO;
