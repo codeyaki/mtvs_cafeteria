@@ -1,6 +1,6 @@
-const { dateFormat } = require("../utility/date-format");
-const DayplanDTO = require("./dayplan-dto");
-const MenuDTO = require("./menu-dto");
+const { dateFormat } = require("../../utility/date-format");
+const DayplanDTO = require("../single/dayplan-dto");
+const MenuDTO = require("../single/menu-dto");
 
 class WeekAndDayAndMenuDTO{
     weekplanCode;
