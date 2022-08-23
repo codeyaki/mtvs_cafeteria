@@ -1,4 +1,4 @@
-class DayplanDTO{
+class DayplanResDTO{
     dayplanCode;
     weekplanCode;
     amPm;
@@ -12,4 +12,4 @@ class DayplanDTO{
     
 }
 
-module.exports = DayplanDTO;
+module.exports = DayplanResDTO;

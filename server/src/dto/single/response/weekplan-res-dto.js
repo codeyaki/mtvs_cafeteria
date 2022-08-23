@@ -1,6 +1,6 @@
-const { dateFormat } = require("../../utility/date-format");
+const { dateFormat } = require("../../../utility/date-format");
 
-class WeekplanDTO{
+class WeekplanResDTO{
     weekplanCode;
     weekplanStart;
     weekplanEnd;
@@ -14,4 +14,4 @@ class WeekplanDTO{
     }
 }
 
-module.exports = WeekplanDTO;
+module.exports = WeekplanResDTO;

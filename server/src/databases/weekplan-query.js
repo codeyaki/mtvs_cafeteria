@@ -1,8 +1,8 @@
-exports.countWeekPlan = () => {
+exports.countWeekplan = () => {
     return `SELECT COUNT(*) FROM TBL_WEEKPLAN`;
 }
 
-exports.selectWeekPlan = () => {
+exports.selectWeekplan = () => {
     return `
         SELECT
                A.*

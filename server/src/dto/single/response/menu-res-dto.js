@@ -1,4 +1,4 @@
-class MenuDTO{
+class MenuResDTO{
     menuCode;
     menuName;
     constructor(resultMap){
@@ -7,4 +7,4 @@ class MenuDTO{
     }
 }
 
-module.exports = MenuDTO;
+module.exports = MenuResDTO;

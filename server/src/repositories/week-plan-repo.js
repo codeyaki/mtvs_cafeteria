@@ -1,22 +1,20 @@
-const weekPlanQuery = require('../databases/week-plan-query');
-const WeekplanDTO = require('../dto/single/weekplan-dto');
+const weekplanQuery = require('../databases/weekplan-query');
 
-exports.selectWeekPlan = (connection, requestEntity) => {
+exports.selectWeekplan = (connection, requestEntity) => {
     return new Promise((resolve, reject) => {
-        connection.query(weekPlanQuery.selectWeekPlan(), [requestEntity.limit, requestEntity.offset], (err, results, fields) => {
+        connection.query(weekplanQuery.selectWeekplan(), [requestEntity.limit, requestEntity.offset], (err, results, fields) => {
             if(err){
                 console.log('err : ', err);
                 return reject(err);
             }
-            // const weekplanDTO = new WeekplanDTO(results);
             resolve(results[0]);
         })
     })
 }
 
-exports.countWeekPlan = (connection) => {
+exports.countWeekplan = (connection) => {
     return new Promise((resolve, reject) => {
-        connection.query(weekPlanQuery.countWeekPlan(), (err, results, fields) => {
+        connection.query(weekplanQuery.countWeekplan(), (err, results, fields) => {
             if(err){
                 console.log(err);
                 return reject(err);
