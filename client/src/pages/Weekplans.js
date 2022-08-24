@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { callGetWeekplanAPI } from '../apis/WeekplanAPICalls';
 function Weekplans(){
     const results = useSelector(state => state.weekplanReducer);
-    const weekplan = results.results;
+    const weekplan = results?.results;
     const dispatch = useDispatch();
     useEffect(
-        ()=> { dispatch(callGetWeekplanAPI() ); }
+        ()=> { 
+            dispatch(callGetWeekplanAPI());
+        }
         , []
     );
     console.log(weekplan);
@@ -19,7 +21,7 @@ function Weekplans(){
             {weekplan?.days.map((day) => {})}
             <div>
                 <h2>식당 공지사항</h2>
-                <p>{weekplan.weekNotice}</p>
+                <p>{weekplan?.weekNotice}</p>
             </div>
         </article>
     );
