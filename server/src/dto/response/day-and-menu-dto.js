@@ -5,7 +5,7 @@ class DayplanAndMenuDTO{
     dayplanCode;
     amPm;
     date;
-    menuDTO;
+    menu;
 
     setDayplan(resultMap){
         this.dayplanCode = resultMap.DAYPLAN_CODE;
@@ -13,8 +13,8 @@ class DayplanAndMenuDTO{
         this.date = dateFormat(resultMap.DATE);
 }
 
-    setMenu(menuDTO){
-        this.menuDTO = [...menuDTO];
+    setMenu(menu){
+        this.menu = [...menu];
     }
 
 }

@@ -42,7 +42,7 @@ exports.selectWeekMenuList = (requestEntity) => {
 
         }
         console.log(dayplanList);
-        weekAndDayAndMenuDTO.setdayplanAndMenuDTO(dayplanList);
+        weekAndDayAndMenuDTO.setdayplanAndMenu(dayplanList);
         connection.end();
 
         resDTO = {

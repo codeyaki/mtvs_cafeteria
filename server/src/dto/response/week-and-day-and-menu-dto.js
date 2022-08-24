@@ -5,7 +5,7 @@ class WeekAndDayAndMenuDTO{
     weekNotice;
     weekStart;
     weekEnd;
-    dayplanAndMenuDTO;
+    dayplanAndMenu;
     constructor() {
         
     }
@@ -15,8 +15,8 @@ class WeekAndDayAndMenuDTO{
         this.weekStart =  dateFormat(resultMap.WEEK_START);
         this.weekEnd =  dateFormat(resultMap.WEEK_END);
     }
-    setdayplanAndMenuDTO(dayplanAndMenuDTO){
-            this.dayplanAndMenuDTO = dayplanAndMenuDTO;
+    setdayplanAndMenu(dayplanAndMenu){
+            this.dayplanAndMenu = dayplanAndMenu;
     }
 }
 
