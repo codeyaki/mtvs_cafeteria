@@ -8,7 +8,7 @@ const actions = createActions({
     [GET_WEEK_MENUS]: () => {}
 })
 
-const weekPlanMenuReducer = handleActions(
+const weekMenuReducer = handleActions(
     {
         [GET_WEEK_MENUS]: (state, {payload}) => {
             return payload;
@@ -16,4 +16,4 @@ const weekPlanMenuReducer = handleActions(
     }, initState
 );
 
-export default weekPlanMenuReducer;
+export default weekMenuReducer;
