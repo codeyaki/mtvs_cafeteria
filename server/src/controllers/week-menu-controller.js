@@ -1,6 +1,5 @@
 const HttpStatus = require('http-status');
 const WeekMenuService = require('../services/week-menu-service');
-const PrintSuccess = require('../printer/print-success');
 const PrintError = require('../printer/print-error');
 
 
