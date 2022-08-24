@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import menuReducer from './MenuModule';
-import weekMenusReducer from './WeekMenusModule';
+import weekplanReducer from './WeekPlanModule'
 const rootReducer = combineReducers({
     menuReducer,
-    weekMenusReducer
+    weekplanReducer
 });
 
 export default rootReducer;
