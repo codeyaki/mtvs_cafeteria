@@ -2,16 +2,20 @@ const { dateFormat } = require("../../utility/date-format");
 
 class WeekplanResDTO{
     weekplanCode;
-    weekplanStart;
-    weekplanEnd;
-    weekplanNotice;
+    weekStart;
+    weekEnd;
+    weekNotice;
+    days;
 
     constructor(resultMap) {
         this.weeekplanCode = resultMap.WEEKPLAN_CODE;
-        this.weekplanStart = dateFormat(new Date(resultMap.WEEK_START));
-        this.weekplanEnd = dateFormat(new Date(resultMap.WEEK_END));
-        this.weekplanNotice = resultMap.WEEK_NOTICE;
+        this.weekStart = dateFormat(new Date(resultMap.WEEK_START));
+        this.weekEnd = dateFormat(new Date(resultMap.WEEK_END));
+        this.weekNotice = resultMap.WEEK_NOTICE;
     }
+    setDays(days){
+        this.days = [...days];
+}
 }
 
 module.exports = WeekplanResDTO;
