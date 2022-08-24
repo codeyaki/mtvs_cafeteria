@@ -8,7 +8,7 @@ function Navbar(){
             <ul>
                 <li><NavLink to="/">메인</NavLink></li>
                 <li><NavLink to="/weekplans">식당 주간 식단표</NavLink></li>
-                <li><NavLink to="/menus">식당 메뉴</NavLink></li>
+                {/* <li><NavLink to="/menus">식당 메뉴</NavLink></li> */}
             </ul>
         </div>
     );
