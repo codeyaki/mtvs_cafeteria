@@ -1,8 +1,20 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Layout from './layouts/Layout';
+import Main from './pages/Main';
+import Weekplans from './pages/Weekplans';
+
+
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Main/>}/>
+          <Route path='weekplans' element={<Weekplans/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
