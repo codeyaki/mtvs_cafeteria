@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dateBox {
+  display: flex;
+  
+}
+
+.dayplanList{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 200px;
+}
+
+.dayplanCard{
+  height: 45%;
+}
+
+.date{
+  height: 10%;
+}
+
+h1{
+  margin: 0px;
+}
+h2{
+  margin: 0px;
+}
+h3{
+  margin: 0px;
+}
+h4{
+  margin: 0px;
+}
+h5{
+  margin: 0px;
+}
+h6{
+  margin: 0px;
+}
+p{
+  margin: 0px;
+}
