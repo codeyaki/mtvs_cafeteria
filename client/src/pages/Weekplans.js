@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { callGetWeekplanAPI } from '../apis/WeekplanAPICalls';
+import { callGetWeekplanAPI } from '../apis/MtvsCafeteriaAPICalls';
 import Dayplan from './../components/card/Dayplan';
 function Weekplans(){
     const results = useSelector(state => state.weekplanReducer);

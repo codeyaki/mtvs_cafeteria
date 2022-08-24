@@ -1,4 +1,4 @@
-import { GET_WEEKPLAN } from './../modules/WeekPlanModule';
+import { GET_WEEKPLAN } from '../modules/WeekPlanModule';
 const rootPath = 'https://mtvscafeteria-api.run.goorm.io/'
 
 
