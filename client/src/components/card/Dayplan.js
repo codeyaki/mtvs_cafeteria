@@ -1,7 +1,5 @@
 
 function Dayplan({day}) {
-    console.log(day);
-
 
 
 
@@ -9,7 +7,7 @@ function Dayplan({day}) {
         <>
             <h1>{day.date}</h1>
             <h2>{day.amPm}</h2>
-            {day.menuList.map(menu => <p>{menu.menuName}</p>)}
+            {day.menuList.map(menu => <p key={menu.menuCode}>{menu.menuName}</p>)}
         </>
     );
 }
