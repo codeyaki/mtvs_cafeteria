@@ -19,10 +19,12 @@ exports.selectWeekMenuList = (requestEntity) => {
         // 주간을 토대로 일간 메뉴 정보 리스트 조회
         const dayplanResultList = await DayplanRepository.selectDayplanList(connection,weekplanResult.WEEKPLAN_CODE);
         let dayplanList = [];
+        // console.log(dayplanResultList);
         // 주에 몇번의 식사가 있는지 조회
         for (let i = 0; i < dayplanResultList.length; i++){
             const menuAndDayplanResultList = await DayplanMenuRepository.selectDayplanMenuList(connection, dayplanResultList[i]);
-            let dayplan = new DayplanResDTO(menuAndDayplanResultList);
+            // console.log(menuAndDayplanResultList);
+            let dayplan = new DayplanResDTO(dayplanResultList[i]);
             let menuList = [];
             // 한번의 식사에 제공되는 메뉴 조회
             for(let j = 0; j < menuAndDayplanResultList.length; j++){
@@ -34,6 +36,7 @@ exports.selectWeekMenuList = (requestEntity) => {
             }
             dayplan.setMenuList(menuList);
             dayplanList.push({...dayplan});
+            // console.log(dayplanList);
         }
         let weekplan = new WeekplanResDTO(weekplanResult);
         weekplan.setDays(dayplanList);
