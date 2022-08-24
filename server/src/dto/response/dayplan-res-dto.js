@@ -1,3 +1,6 @@
+const { dateFormat } = require("../../utility/date-format");
+
+
 class DayplanResDTO{
     dayplanCode;
     amPm;
@@ -6,7 +9,7 @@ class DayplanResDTO{
     constructor(resultMap) {
         this.dayplanCode = resultMap.DAYPLAN_CODE;
         this.amPm = resultMap.AMPM;
-        this.date = resultMap.DATE;
+        this.date = dateFormat{resultMap.DATE};
     }
     setMenuList(menuList){
         this.menuList = [...menuList];
