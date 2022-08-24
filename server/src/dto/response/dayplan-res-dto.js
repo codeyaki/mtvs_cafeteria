@@ -9,7 +9,7 @@ class DayplanResDTO{
     constructor(resultMap) {
         this.dayplanCode = resultMap.DAYPLAN_CODE;
         this.amPm = resultMap.AMPM;
-        this.date = dateFormat{resultMap.DATE};
+        this.date = dateFormat(resultMap.DATE);
     }
     setMenuList(menuList){
         this.menuList = [...menuList];
