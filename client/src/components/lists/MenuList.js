@@ -1,28 +1,15 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {callGetMenuAPI} from './../../apis/MenuAPICalls';
+import { callGetMenuAPI } from './../../apis/MenuAPICalls';
+import Menu from './../card/Menu';
 
-function MenuList(){
-    const menus = useSelector(state => state.menuReducer);
+function MenuList(menus){
     console.log(menus);
-    const dispatch = useDispatch();
 
-    useEffect(
-        ()=>{
-            dispatch(callGetMenuAPI());
-        },[]
-    );
-
-    return menus && (
-        <article>
-            <h1>메뉴 목록</h1>
-            <ul>
-                {menus?.map(menu => <li key={menu.menuCode}>{menu.menuName}</li>)}
-            </ul>
-            <div>
-                
-            </div>
-        </article>
+    return (
+        <>
+            {/* {menus?.menu.map(menu => {<Menu key={menuCode}/>})} */}
+        </>
 
     );
 }

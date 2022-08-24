@@ -1,4 +1,3 @@
-
 import { createActions, handleActions } from 'redux-actions';
 const initState = {};
 
@@ -8,7 +7,7 @@ const actions = createActions({
     [GET_WEEK_MENUS]: () => {}
 })
 
-const weekMenuReducer = handleActions(
+const weekMenusReducer = handleActions(
     {
         [GET_WEEK_MENUS]: (state, {payload}) => {
             return payload;
@@ -16,4 +15,4 @@ const weekMenuReducer = handleActions(
     }, initState
 );
 
-export default weekMenuReducer;
+export default weekMenusReducer;
