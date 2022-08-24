@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { callGetWeekplanAPI } from '../apis/WeekplanAPICalls';
+import Dayplan from './../components/card/Dayplan';
 function Weekplans(){
     const results = useSelector(state => state.weekplanReducer);
     const weekplan = results?.results;
@@ -13,15 +14,15 @@ function Weekplans(){
         , []
     );
     console.log(weekplan);
-    return (
+    return weekplan && (
         <article>
             <h1>식당 주간 식단표</h1>
-            <h2>시작일: {weekplan?.weekStart}</h2>
-            <h2>종료일: {weekplan?.weekEnd}</h2>
-            {weekplan?.days.map((day) => {})}
+            <h2>시작일: {weekplan.weekStart}</h2>
+            <h2>종료일: {weekplan.weekEnd}</h2>
+            {weekplan.days.map((day) => {return <Dayplan key={day.dayplanCode} day={day}/>})}
             <div>
                 <h2>식당 공지사항</h2>
-                <p>{weekplan?.weekNotice}</p>
+                <p>{weekplan.weekNotice}</p>
             </div>
         </article>
     );
