@@ -1,6 +1,7 @@
 const HttpStatus = require('http-status');
 const WeekMenuService = require('../services/week-menu-service');
 const PrintError = require('../printer/print-error');
+const { serverPath } = require('../../app');
 
 
 exports.selectWeekMenuList = async (req, res, next) => {
@@ -14,11 +15,11 @@ exports.selectWeekMenuList = async (req, res, next) => {
     if(results.count == 0){
         PrintError.errorNotFound(res)
     }
-    const host = req.headers.host;
+    const serverPath = serverPath;
     const isNext = (offset+1 < results.count-1) ? true : false;
     const isPrevious = (offset-1 > 0) ? true : false;
-    const nextWeek = isNext ? 'http://' + host + '/week-menus' + '?offset=' + (offset+1) + "&limit=" + limit : null;
-    const previousWeek = isPrevious ? 'http://' + host + '/week-menus' + '?offset=' + (offset-1) + "&limit=" + limit : null;
+    const nextWeek = isNext ? serverPath + '/week-menus' + '?offset=' + (offset+1) + "&limit=" + limit : null;
+    const previousWeek = isPrevious ? serverPath + '/week-menus' + '?offset=' + (offset-1) + "&limit=" + limit : null;
     const resBody = {
         count: results.count,
         nextWeek: nextWeek,
