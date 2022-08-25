@@ -12,8 +12,6 @@ exports.selectMenuList = async (req, res) => {
         offset: offset,
         limit: limit
     }
-    
-    const serverPath = serverPath;
     const results = await MenuService.selectMenuList(limitOffset);
     const isNext = (offset+rawCount < results.count-1) ? true : false;
     const isPrevious = (offset-1 > 0) ? true : false;
