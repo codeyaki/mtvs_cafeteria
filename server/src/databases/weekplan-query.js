@@ -1,3 +1,4 @@
+
 exports.countWeekplan = () => {
     return `SELECT COUNT(*) FROM TBL_WEEKPLAN`;
 }
