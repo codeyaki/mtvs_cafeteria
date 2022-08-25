@@ -14,10 +14,8 @@ app.use('/week-menus', WeekMenuRouter);
 const menuRouter = require('./src/routes/menu-route');
 app.use('/menus', menuRouter);
 
-const serverPath = "https://mtvseat.run.goorm.io/menus";
-
 const port = 8888;
 const host = "0.0.0.0";
 app.listen(port, host, () => console.log('listening on port : ' + port));
 
-exports.rootUrl = "https://mtvseat.run.goorm.io";
+exports.rootUrl = "https://mtvscafeteria-api.run.goorm.io/";

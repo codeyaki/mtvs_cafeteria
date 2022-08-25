@@ -15,6 +15,7 @@ export function callGetWeekplanAPI(url){
 export function callGetMenuAPI(url){
     const requestURL = ( url || rootPath) + '/menus';
     return async function getMenu(disptach, getState){
+        console.log(url);
         const result = await fetch(requestURL).then(res => res.json());
         
         console.log(result);
