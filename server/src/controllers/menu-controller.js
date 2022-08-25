@@ -15,7 +15,7 @@ exports.selectMenuList = async (req, res) => {
     const host = req.headers.host;
     const results = await MenuService.selectMenuList(limitOffset);
     const isNext = (offset+rawCount < results.count-1) ? true : false;
-    const isPrevious = (offset-rawCount > 0) ? true : false;
+    const isPrevious = (offset-1 > 0) ? true : false;
     const next = isNext ? 'http://' + host + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
     const previous = isPrevious ? 'http://' + host + '/menus' + '?offset=' + (offset-rawCount) + "&limit=" + limit : null;
     const resBody = {

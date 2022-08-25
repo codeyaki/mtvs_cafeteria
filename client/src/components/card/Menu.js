@@ -1,9 +1,9 @@
 
 function Menu({menu}){
-
+    console.log(menu);
     return (
         <>
-            <p>{menu.name}</p>
+            <p>{menu.menuName}</p>
         </>
     );
 }
