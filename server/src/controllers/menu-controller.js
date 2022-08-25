@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const { serverPath } = require('../../app.js');
 const MenuService = require('../services/menu-service.js');
 
 
@@ -12,12 +13,12 @@ exports.selectMenuList = async (req, res) => {
         limit: limit
     }
     
-    const host = req.headers.host;
+    const serverPath = serverPath;
     const results = await MenuService.selectMenuList(limitOffset);
     const isNext = (offset+rawCount < results.count-1) ? true : false;
     const isPrevious = (offset-1 > 0) ? true : false;
-    const next = isNext ? 'http://' + host + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
-    const previous = isPrevious ? 'http://' + host + '/menus' + '?offset=' + (offset-rawCount) + "&limit=" + limit : null;
+    const next = isNext ? serverPath + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
+    const previous = isPrevious ? serverPath + '/menus' + '?offset=' + (offset-rawCount) + "&limit=" + limit : null;
     const resBody = {
         count: results.count,
         next: next,
