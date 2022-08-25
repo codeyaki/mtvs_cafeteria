@@ -17,6 +17,7 @@ export function callGetMenuAPI(url){
     return async function getMenu(disptach, getState){
         const result = await fetch(requestURL).then(res => res.json());
         
+        console.log(result);
 
         disptach({type:GET_MENUS, payload:result});
     }

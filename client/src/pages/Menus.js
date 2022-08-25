@@ -1,9 +1,16 @@
 
-import MenuList from './../components/lists/MenuList';
+
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { callGetMenuAPI } from './../apis/MtvsCafeteriaAPICalls';
 function Menus(){
-    const result = useSelector((state) => state.menuReducer);
+    const results = useSelector((state) => state.menuReducer);
     const dispatch = useDispatch();
+
+    useEffect(
+        ()=>{dispatch(callGetMenuAPI())}
+        ,[]
+    )
 
     return (
         <div>
