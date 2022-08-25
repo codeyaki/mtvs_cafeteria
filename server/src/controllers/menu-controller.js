@@ -4,7 +4,6 @@ const MenuService = require('../services/menu-service.js');
 
 
 exports.selectMenuList = async (req, res) => {
-    console.log('hi');
     const rawCount = 40;
     const offset = parseInt(req.query.offset || '0');
     const limit = parseInt(req.query.limit || rawCount);
@@ -15,8 +14,8 @@ exports.selectMenuList = async (req, res) => {
     const results = await MenuService.selectMenuList(limitOffset);
     const isNext = (offset+rawCount < results.count-1) ? true : false;
     const isPrevious = (offset-1 > 0) ? true : false;
-    const next = isNext ? serverPath + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
-    const previous = isPrevious ? serverPath + '/menus' + '?offset=' + (offset-rawCount) + "&limit=" + limit : null;
+    const next = isNext ? serverPath.rootUrl + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
+    const previous = isPrevious ? serverPath.rootUrl + '/menus' + '?offset=' + (offset-rawCount) + "&limit=" + limit : null;
     const resBody = {
         count: results.count,
         next: next,

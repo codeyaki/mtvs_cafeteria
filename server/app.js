@@ -19,6 +19,7 @@ const serverPath = "https://mtvseat.run.goorm.io/menus";
 const port = 8888;
 const host = "0.0.0.0";
 app.listen(port, host, () => console.log('listening on port : ' + port));
-exports.port = port;
 
-export default serverPath
+exports.rootUrl = () => {
+    return "https://mtvseat.run.goorm.io/menus";
+}
