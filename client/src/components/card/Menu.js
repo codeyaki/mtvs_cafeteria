@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 function Menu({menu}){
     console.log(menu);
     return (
         <>
-            <p>{menu.menuName}</p>
+            <Link to={`/menus/${menu.menuCode}`}><p>{menu.menuName}</p></Link>
         </>
     );
 }

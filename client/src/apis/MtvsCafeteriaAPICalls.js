@@ -1,5 +1,5 @@
 import { GET_WEEKPLAN } from '../modules/WeekPlanModule';
-import { GET_MENUS } from './../modules/MenuModule';
+import { GET_MENUS, GET_MENUS_DETAILS } from './../modules/MenuModule';
 const rootPath = 'https://mtvscafeteria-api.run.goorm.io'
 
 
@@ -17,9 +17,18 @@ export function callGetMenuAPI(url){
     return async function getMenu(disptach, getState){
         console.log(url);
         const result = await fetch(requestURL).then(res => res.json());
-        
-        console.log(result);
 
         disptach({type:GET_MENUS, payload:result});
+    }
+}
+
+export function callGetMenuDetailAPI(menuCode){
+    const requestURL = rootPath + `/menus/${menuCode}`;
+    return async function getMenuDetail(dispatch, getState){
+        const result = await fetch(requestURL).then(res => res.json());
+
+        console.log(result);
+
+        dispatch({type:GET_MENUS_DETAILS, payload: result})
     }
 }
