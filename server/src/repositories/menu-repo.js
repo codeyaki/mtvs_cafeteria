@@ -1,4 +1,5 @@
 const menuQuery = require('../databases/menu-query');
+const MenuAndCategoryResDTO = require('../dto/response/menu-and-category-res-dto');
 const MenuResDTO = require('../dto/response/menu-res-dto');
 
 exports.countMenu = (connection) => {
@@ -31,4 +32,22 @@ exports.selectMenuList = (connection, limitOffset) => {
             resolve(menuList);
         });
     });
+}
+
+exports.selectMenuByMenuCode = (connection, menuCode) => {
+    return new Promise((resolve, reject) => {
+        connection.query(menuQuery.selectMenuByMenuCode(), [menuCode], (err, results, feilds)=>{
+            if(err){
+                console.error(err);
+                return reject(err);
+            }
+            const menu = new MenuAndCategoryResDTO({
+                menuCode: results[0].MENU_CODE,
+                menuName: results[0].MENU_NAME,
+                categoryCode: results[0].CATEGORY_CODE,
+                categoryName: results[0].CATEGORY_NAME
+            });
+            resolve(menu);
+        } );
+    })
 }

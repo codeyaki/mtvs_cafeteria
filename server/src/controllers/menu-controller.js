@@ -30,7 +30,8 @@ exports.selectMenuList = async (req, res) => {
 exports.selectMenuByMenuCode = async (req, res, next) => {
     const {menuCode} = req.params;
 
-    
-    
+    const results = await MenuService.selectMenuByMenuCode(menuCode);
+
+    return res.status(httpStatus.OK).json(results);
 }
 
