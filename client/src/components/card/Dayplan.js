@@ -1,4 +1,5 @@
 
+import Menu from './Menu';
 function Dayplan({day}) {
 
 
@@ -7,7 +8,7 @@ function Dayplan({day}) {
         <>
             <h1>{day.date}</h1>
             <h2>{day.amPm}</h2>
-            {day.menuList.map(menu => <p key={menu.menuCode}>{menu.menuName}</p>)}
+            {day.menuList.map(menu => <Menu key={menu.menuCode} menu={menu}/>)}
         </>
     );
 }

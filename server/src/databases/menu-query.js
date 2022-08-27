@@ -14,3 +14,15 @@ exports.selectMenuList = () => {
 
     `
 }
+
+exports.selectMenuByMenuCode = () => {
+    return `
+        SELECT
+               A.MENU_CODE
+             , A.MENU_NAME
+             , A.CATEGORY_CODE
+          FROM TBL_MENU A
+          JOIN TBL_CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
+         WHERE A.MENU_CODE = ?
+    `;
+}

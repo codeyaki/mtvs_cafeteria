@@ -11,7 +11,9 @@ exports.selectMenuList = async (req, res) => {
         offset: offset,
         limit: limit
     }
+
     const results = await MenuService.selectMenuList(limitOffset);
+
     const isNext = (offset+rawCount < results.count-1) ? true : false;
     const isPrevious = (offset-1 > 0) ? true : false;
     const next = isNext ? serverPath.rootUrl + '/menus' + '?offset=' + (offset+rawCount) + "&limit=" + limit : null;
@@ -24,4 +26,12 @@ exports.selectMenuList = async (req, res) => {
     }
     return res.status(httpStatus.OK).json(resBody);
 };
+
+exports.selectMenuByMenuCode = async (req, res, next) => {
+    const {menuCode} = req.params;
+
+    const results = await MenuService.selectMenuByMenuCode(menuCode);
+
+    return res.status(httpStatus.OK).json(results);
+}
 
