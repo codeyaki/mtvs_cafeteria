@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { callGetMenuDetailAPI } from './../apis/MtvsCafeteriaAPICalls';
 import { useEffect } from 'react';
 
-const { useParams } = require("react-router-dom");
+const { useParams, Link } = require("react-router-dom");
 
 function MenuDetails() {
 
@@ -39,7 +39,7 @@ function MenuDetails() {
                     
                 </>
             }
-            <button>리뷰 작성하기</button>
+            <button onClick={ () => window.location.href=`/review/new/${menuCode}`}>리뷰 작성하기</button>
         </>
 
     );

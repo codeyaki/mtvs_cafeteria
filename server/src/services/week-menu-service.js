@@ -31,6 +31,7 @@ exports.selectWeekMenuList = async (requestEntity) => {
             menuResDTO.setMenuCode(menuAndDayplanResultList[j].MENU_CODE);
             menuResDTO.setMenuName(menuAndDayplanResultList[j].MENU_NAME);
             menuResDTO.setCategoryCode(menuAndDayplanResultList[j].CATEGORY_CODE);
+            menuResDTO.setAvgScore(menuAndDayplanResultList[j].AVG_SCORE)
             menuList.push(menuResDTO);
         }
         dayplan.setMenuList(menuList);

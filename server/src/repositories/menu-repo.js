@@ -27,6 +27,7 @@ exports.selectMenuList = (connection, limitOffset) => {
                 menudto.setMenuCode(menu.MENU_CODE);
                 menudto.setMenuName(menu.MENU_NAME);
                 menudto.setCategoryCode(menu.CATEGORY_CODE);
+                menudto.setAvgScore(menu.AVG_SCORE)
                 menuList.push(menudto);
             });
             resolve(menuList);
@@ -41,11 +42,13 @@ exports.selectMenuByMenuCode = (connection, menuCode) => {
                 console.error(err);
                 return reject(err);
             }
+            console.log(results);
             const menu = new MenuAndCategoryResDTO({
                 menuCode: results[0].MENU_CODE,
                 menuName: results[0].MENU_NAME,
                 categoryCode: results[0].CATEGORY_CODE,
-                categoryName: results[0].CATEGORY_NAME
+                categoryName: results[0].CATEGORY_NAME,
+                avgScore: results[0].AVG_SCORE
             });
             resolve(menu);
         } );

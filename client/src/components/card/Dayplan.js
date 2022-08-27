@@ -1,9 +1,6 @@
 
 import Menu from './Menu';
 function Dayplan({day, index}) {
-
-
-
     return day && (
         <div className='dayplanCard'>
             {(index%2==0)? <h3>{day.date}</h3> : null}

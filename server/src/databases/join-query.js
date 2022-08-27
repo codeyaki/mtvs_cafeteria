@@ -19,12 +19,17 @@ exports.selectDayplanMenuList = () => {
              , C.MENU_NAME
              , D.CATEGORY_CODE
              , D.CATEGORY_NAME
-          FROM TBL_DAYPLAN A
+             , IFNULL(AVG(E.REVIEW_SCORE), 0) 'AVG_SCORE'
+          FROM (SELECT * 
+                  FROM TBL_DAYPLAN 
+                 WHERE DAYPLAN_CODE = ?
+                   AND AMPM = ?
+               ) A
           JOIN TBL_MENUPLAN B ON(A.DAYPLAN_CODE = B.DAYPLAN_CODE)
           JOIN TBL_MENU C ON(B.MENU_CODE = C.MENU_CODE)
           JOIN TBL_CATEGORY D ON(C.CATEGORY_CODE = D.CATEGORY_CODE)
-         WHERE A.DAYPLAN_CODE = ?
-           AND A.AMPM = ?
+          LEFT JOIN TBL_REVIEW E ON(C.MENU_CODE = E.MENU_CODE)
+          GROUP BY C.MENU_CODE;
     `;   
 
 }
