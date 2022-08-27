@@ -2,6 +2,7 @@ class MenuResDTO{
     menuCode;
     menuName;
     categoryCode;
+    avgScore;
     setMenuCode(menuCode){
         this.menuCode = menuCode;
     }
@@ -11,19 +12,9 @@ class MenuResDTO{
     setCategoryCode(categoryCode){
         this.categoryCode = categoryCode;
     }
-
-    getMenuCode(){
-        return this.menuCode;
+    setAvgScore(avgScore){
+        this.avgScore = avgScore;
     }
-    
-    getMenuName(){
-        return this.menuName;
-    }
-    
-    getCategoryCode(){
-        return this.categoryCode;
-    }
-
 }
 
 module.exports = MenuResDTO;
