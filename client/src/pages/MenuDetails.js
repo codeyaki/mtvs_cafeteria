@@ -9,7 +9,7 @@ function MenuDetails() {
     const {menuCode} = useParams();
 
     const result = useSelector(state => state.menuReducer);
-
+    console.log(result);
     const dispatch = useDispatch();
 
     useEffect(
@@ -19,11 +19,21 @@ function MenuDetails() {
         ,[]
     );
 
-    console.log(menuCode);
-
     return (
         <>
-            <h1>테스트</h1>
+            <h2> {result.menu?.menuName}의 리뷰 확인하기</h2>
+            <div>
+                <ul>
+                    {result.reviewList?.map(review => { 
+                        return (<li key={review.reviewCode} className='reviewCard'>
+                            <h4 className='reivewElement'>{review.nickname}의 리뷰</h4>
+                            <h5 className='reivewElement'>평점: {review.reviewScore} </h5>
+                            <h5 className='reivewElement'>리뷰 내용: {review.reviewDetails} </h5>
+                        </li>);
+                    })}
+                </ul>
+
+            </div>
         </>
 
     );
