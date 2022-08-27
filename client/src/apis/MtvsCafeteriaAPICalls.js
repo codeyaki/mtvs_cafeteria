@@ -9,6 +9,7 @@ export function callGetWeekplanAPI(url){
     return async function getWeekplan(dispatch, getState){
         const result = await fetch(requestURL).then(res => res.json());
         // console.log('week-menus : ' , result);
+        console.log(result);
         dispatch({type: GET_WEEKPLAN, payload: result});
     }
 }
