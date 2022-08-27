@@ -14,9 +14,18 @@ exports.selectReviewByMenuCode = (connection, menuCode) => {
             console.log(reviewList);
             
             resolve(reviewList);
-            
-
         })
     })
+}
 
+exports.averageReviewScore = (connection, menuCode) => {
+    return new Promise((resolve, reject) => {
+        connection.query(ReviewQuery.averageReviewScore(), [menuCode], (err, results) => {
+            if(err){
+                console.error(err);
+                return reject(err);
+            }
+            resolve(results[0]['AVG(A.REVIEW_SCORE)']);
+        })
+    })
 }

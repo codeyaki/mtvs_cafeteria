@@ -28,8 +28,8 @@ export function callGetMenuDetailAPI(menuCode){
     return async function getMenuDetail(dispatch, getState){
         const menu = await fetch(menuRequestURL).then(res => res.json());
         const reviewList = await fetch(reviewRequestURL).then(res => res.json());
-
-        const result ={menu: menu, reviewList: [...reviewList]}
+        const result ={menu: menu, reviewList: reviewList}
+        console.log(result)
         dispatch({type:GET_MENUS_DETAILS, payload: result})
     }
 }

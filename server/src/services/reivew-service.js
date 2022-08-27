@@ -5,10 +5,10 @@ const getConnection = require ('../databases/connection');
 
 exports.findReviewListByMenuCode = async(menuCode) => {
     const connection = getConnection();
+    const avgScore = await ReviewRepo.averageReviewScore(connection, menuCode);
     const result = await ReviewRepo.selectReviewByMenuCode(connection, menuCode);
-
-    
-    return result;
+    connection.end();
+    return {avgScore: avgScore, result: result};
 
 
 }
