@@ -14,22 +14,20 @@ export function callGetWeekplanAPI(url){
 }
 
 export function callGetMenuAPI(url){
-    const requestURL = ( url || rootPath) + '/menus';
+    const requestURL =  url || (rootPath + '/menus');
     return async function getMenu(disptach, getState){
         const result = await fetch(requestURL).then(res => res.json());
-
         disptach({type:GET_MENUS, payload:result});
     }
 }
 
-export function callGetMenuDetailAPI(menuCode){
-    const menuRequestURL = rootPath + `/menus/${menuCode}`;
+export function callGetMenuDetailAPI(menuCode, url){
+    const menuRequestURL = url || (rootPath + `/menus/${menuCode}`);
     const reviewRequestURL = rootPath + `/reviews/${menuCode}`;
     return async function getMenuDetail(dispatch, getState){
         const menu = await fetch(menuRequestURL).then(res => res.json());
         const reviewList = await fetch(reviewRequestURL).then(res => res.json());
-        const result ={menu: menu, reviewList: reviewList}
-        console.log(result)
+        const result ={menu: menu, reviewList: reviewList};
         dispatch({type:GET_MENUS_DETAILS, payload: result})
     }
 }

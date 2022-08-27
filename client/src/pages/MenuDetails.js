@@ -17,7 +17,6 @@ function MenuDetails() {
         }
         ,[]
     );
-    console.log(result.reviewList?.avgScore)
     return (
         <>
             <h2> {result.menu?.menuName}의 리뷰 확인하기</h2>
@@ -37,9 +36,10 @@ function MenuDetails() {
             :   
                 <>
                     <h3>리뷰가 없습니다. 처음으로 리뷰를 작성하시겠습니까 ?</h3>
-                    <button>리뷰 작성하기</button>
+                    
                 </>
             }
+            <button>리뷰 작성하기</button>
         </>
 
     );
