@@ -1,8 +1,8 @@
 import { GET_WEEKPLAN } from '../modules/WeekPlanModule';
 import { GET_MENUS, GET_MENUS_DETAILS } from './../modules/MenuModule';
-// const rootPath = 'https://mtvscafeteria-api.run.goorm.io'
+const rootPath = 'https://mtvscafeteria-api.run.goorm.io'
 /** 테스트용 url */
-const rootPath = 'http://127.0.0.1:8888'
+// const rootPath = 'http://127.0.0.1:8888'
 
 export function callGetWeekplanAPI(url){
     const requestURL = (url || rootPath) + '/week-menus';

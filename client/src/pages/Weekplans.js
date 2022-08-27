@@ -15,8 +15,8 @@ function Weekplans(){
     );
     return weekplan && (
         <article>
-            <button onClick={() => dispatch(callGetWeekplanAPI(results?.previousWeek))}>이전 주</button>
-            <button onClick={() => dispatch(callGetWeekplanAPI(results?.nextWeek))}>다음 주</button>
+            {results.previousWeek? <button onClick={() => dispatch(callGetWeekplanAPI(results?.previousWeek))}>이전 주</button> : null}
+            {results.nextWeek? <button onClick={() => dispatch(callGetWeekplanAPI(results?.nextWeek))}>다음 주</button> : null}
             <h1>식당 주간 식단표</h1>
             <h2>시작일: {weekplan.weekStart}</h2>
             <h2>종료일: {weekplan.weekEnd}</h2>
