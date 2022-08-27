@@ -56,7 +56,7 @@ li{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 90vmin;
+  height: 50vmax;
   box-sizing: border-box;
   width: 100%;
   justify-content: start;
