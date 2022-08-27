@@ -1,3 +1,4 @@
+const httpStatus = require('http-status');
 const ReviewService = require('../services/reivew-service.js');
 
 exports.findReviewListByMenuCode = async (req, res, next) => {
@@ -9,4 +10,5 @@ exports.findReviewListByMenuCode = async (req, res, next) => {
     const results = await ReviewService.findReviewListByMenuCode(menuCode)
 
     console.log(offset, limit);
+    res.status(httpStatus.OK).json(results);
 }

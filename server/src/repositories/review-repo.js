@@ -8,10 +8,12 @@ exports.selectReviewByMenuCode = (connection, menuCode) => {
                 console.error(err);
                 return reject(err);
             }
+
             let reviewList = [];
             results.map((result) => reviewList.push(new ReviewResDTO(result)));
             console.log(reviewList);
             
+            resolve(reviewList);
             
 
         })
