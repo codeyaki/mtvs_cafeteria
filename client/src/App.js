@@ -9,6 +9,7 @@ import MenuDetails from './pages/MenuDetails';
 
 function App() {
   return (
+    <div className='wrapDiv'>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
@@ -21,6 +22,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 

@@ -20,7 +20,9 @@ function Weekplans(){
             <h1>식당 주간 식단표</h1>
             <h2>시작일: {weekplan.weekStart}</h2>
             <h2>종료일: {weekplan.weekEnd}</h2>
-            {weekplan.days.map((day) => {return <Dayplan key={day.dayplanCode} day={day}/>})}
+            <ul className='dayplanList'>
+                {weekplan.days.map((day, index) => {return <Dayplan key={day.dayplanCode} day={day} index={index}/>})}
+            </ul>
             <div>
                 <h2>식당 공지사항</h2>
                 <p>{weekplan.weekNotice}</p>

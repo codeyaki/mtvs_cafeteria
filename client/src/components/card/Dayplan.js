@@ -1,15 +1,15 @@
 
 import Menu from './Menu';
-function Dayplan({day}) {
+function Dayplan({day, index}) {
 
 
 
     return day && (
-        <>
-            <h1>{day.date}</h1>
-            <h2>{day.amPm}</h2>
+        <div className='dayplanCard'>
+            {(index%2==0)? <h3>{day.date}</h3> : null}
+            <h4>{day.amPm}</h4>
             {day.menuList.map(menu => <Menu key={menu.menuCode} menu={menu}/>)}
-        </>
+        </div>
     );
 }
 

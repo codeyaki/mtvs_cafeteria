@@ -23,7 +23,9 @@ function Menus(){
                 {results.previous? <button onClick={() => {dispatch(callGetMenuAPI(results.previous))}}>이전</button> : null}
                 {results.next? <button onClick={() => {dispatch(callGetMenuAPI(results.next))}}>다음</button> : null}
             </div>
-            {menuList?.map((menu)=><Menu key={menu.menuCode} menu={menu}/>)}
+            <ul>
+                {menuList?.map((menu)=><Menu key={menu.menuCode} menu={menu}/>)}
+            </ul>
         </div>
     );
 }
