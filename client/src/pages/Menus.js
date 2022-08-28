@@ -6,6 +6,7 @@ import { callGetMenuAPI } from './../apis/MtvsCafeteriaAPICalls';
 import Menu from './../components/card/Menu';
 import Button from './../components/commons/Button';
 import { RESET_STATE } from './../modules/ReviewModule';
+import { RESET_MENUS } from './../modules/MenuModule';
 
 
 function Menus(){
@@ -17,6 +18,7 @@ function Menus(){
         ()=>{
             dispatch(callGetMenuAPI());
             dispatch({type:RESET_STATE});
+            dispatch({type:RESET_MENUS});
         }
         ,[]
     )
