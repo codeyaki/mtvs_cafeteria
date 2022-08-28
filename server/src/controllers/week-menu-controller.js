@@ -15,7 +15,7 @@ exports.selectWeekMenuList = async (req, res, next) => {
     if(results.count == 0){
         PrintError.errorNotFound(res)
     }
-    const host = `http://${req.headers.host}`;
+    const host = `${req.protocol}://${req.headers.host}`;
     const isPrevious = (offset+limit < results.count) ? true : false;
     const isNext = (offset-limit >= 0) ? true : false;
     console.log(isNext);
