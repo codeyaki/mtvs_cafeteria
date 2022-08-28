@@ -22,8 +22,9 @@ function Menus(){
     )
 
     return (
-        <div>
+        <article>
             <div className='buttonBox'>
+            <h1>메뉴 목록</h1>
                 {results.previous? 
                     <button onClick={() => {dispatch(callGetMenuAPI(results.previous))}}>이전</button> 
                     : <button style={{'backgroundColor': 'gray', color: 'white'}}>마지막입니다</button>}
@@ -31,12 +32,10 @@ function Menus(){
                     <button onClick={() => {dispatch(callGetMenuAPI(results.next))}}>다음</button> 
                     : <button style={{'backgroundColor': 'gray', color: 'white'}}>마지막입니다</button>}
             </div>
-            <br/>
-            <h1>메뉴 목록</h1>
             <ul>
                 {menuList?.map((menu)=><Menu key={menu.menuCode} menu={menu}/>)}
             </ul>
-        </div>
+        </article>
     );
 }
 

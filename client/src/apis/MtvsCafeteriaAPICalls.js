@@ -45,7 +45,7 @@ export function callNewReviewAPI(formData){
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
         }).then(res => res.json());
-        console.log(results);
+        // console.log(results);
         dispatch({type:NEW_REVIEW, payload:results});
     }
 }
@@ -58,7 +58,7 @@ export function callDeleteReivewAPI(reqData){
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(reqData)
         }).then(res => res.json());
-        console.log(results);
+        // console.log(results);
         dispatch({type:DELETE_REVIEW, payload: results});
 
     }

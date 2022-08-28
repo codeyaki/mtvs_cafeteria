@@ -27,8 +27,6 @@ function NewReview(){
     const sendFormData = () => {
         // console.log(formData);
         dispatch(callNewReviewAPI(formData, menuCode));
-        console.log('21')
-        console.log(results);
         // if(results)
         // location.
     }
@@ -45,7 +43,7 @@ function NewReview(){
     useEffect(
         () => {
             if(results.results === 'error'){
-                alert(`에러 발생 \n 에러 코드 : ${results.code} \n에러 메시지 : ${results.message}`)
+                alert(`에러 발생 \n에러 코드 : ${results.code} \n에러 메시지 : ${results.message}`)
             } else if ( results.results === "success"){
                 alert(`정상적으로 추가되었습니다.`);
                 window.location.href = `/menus/${results.insertedId}`
@@ -57,7 +55,7 @@ function NewReview(){
 
 
     return (
-        <>
+        <article>
             <div className='buttonBox'>
                 <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
             </div>
@@ -83,7 +81,7 @@ function NewReview(){
             <br/>
             <button onClick={sendFormData}>작성 완료</button>
             
-        </>
+        </article>
     );
 }
 
