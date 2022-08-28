@@ -23,7 +23,7 @@ exports.newReivew = async (req, res, next) => {
     try{
         if(nickname && password && score && details && menuCode){
             const reviewReqDTO = new ReviewReqDTO(menuCode, nickname, password, score, details, clientIp, insertDate);
-            const result = new ReviewService.newReivew(reviewReqDTO);
+            const result = await ReviewService.newReivew(reviewReqDTO);
             if(result){
                 return res.status(httpStatus.CREATED).json({results:"success", insertedId:menuCode});
             }
