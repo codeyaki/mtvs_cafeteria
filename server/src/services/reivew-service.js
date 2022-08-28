@@ -1,5 +1,6 @@
 const ReviewRepo = require('../repositories/review-repo.js');
 const getConnection = require ('../databases/connection');
+const Bcrypt = require('bcrypt');
 
 
 
@@ -31,4 +32,19 @@ exports.newReivew = (reviewReqDTO) => {
             connection.end();
         }
     })
+}
+
+exports.deleteReivew = async (password, reviewCode) => {
+    const connection = getConnection();
+    const encryptedPW = await ReviewRepo.selectPw(connection, reviewCode);
+    if(Bcrypt.compareSync(password, encryptedPW)){
+        // console.log('통과');
+        const results = await ReviewRepo.deleteReivew(connection, reviewCode);
+        if(results.affectedRows == 1){
+            return(true);
+        }
+    }
+    throw {errCode: -1997, errMessage: "패스워드가 틀렸습니다."}
+    // console.log(encryptedPW)
+
 }

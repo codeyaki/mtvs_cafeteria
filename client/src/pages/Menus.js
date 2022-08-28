@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { callGetMenuAPI } from './../apis/MtvsCafeteriaAPICalls';
 import Menu from './../components/card/Menu';
 import Button from './../components/commons/Button';
+import { RESET_STATE } from './../modules/ReviewModule';
 
 
 function Menus(){
@@ -13,7 +14,10 @@ function Menus(){
     const dispatch = useDispatch();
 
     useEffect(
-        ()=>{dispatch(callGetMenuAPI())}
+        ()=>{
+            dispatch(callGetMenuAPI());
+            dispatch({type:RESET_STATE});
+        }
         ,[]
     )
 

@@ -40,3 +40,20 @@ exports.insertReview = (reviewResDTO) => {
         )
     `;
 }
+
+exports.selectPw = () => {
+  return`
+    SELECT
+           PASSWORD
+      FROM TBL_REVIEW
+     WHERE REVIEW_CODE = ?
+  `;
+}
+
+exports.deleteReivew = () => {
+  return `
+    DELETE
+      FROM TBL_REVIEW
+     WHERE REVIEW_CODE = ?
+  `;
+}

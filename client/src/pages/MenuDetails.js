@@ -1,19 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { callDeleteReivewAPI, callGetMenuDetailAPI } from './../apis/MtvsCafeteriaAPICalls';
 import { useEffect } from 'react';
+import { RESET_STATE } from '../modules/ReviewModule';
 
-const { useParams, Link } = require("react-router-dom");
+const { useParams} = require("react-router-dom");
 
 function MenuDetails() {
 
     const {menuCode} = useParams();
 
     const result = useSelector(state => state.menuReducer);
+    const isDelete = useSelector(state => state.reviewReducer);
     const reviewList = result.reviewList?.result;
     const dispatch = useDispatch();
     useEffect(
         ()=>{
             dispatch(callGetMenuDetailAPI(menuCode));
+            dispatch({type:RESET_STATE})
         }
         ,[]
     );
@@ -24,6 +27,16 @@ function MenuDetails() {
         
         
     }
+    useEffect(
+        ()=>{
+            if(isDelete?.results == 'success'){
+                alert('정상적으로 삭제되었습니다.');
+                dispatch(callGetMenuDetailAPI(menuCode));
+            } else if(isDelete?.results == 'error') {
+            alert(`삭제 실패 \nerrCode: ${isDelete.errCode}\nerrMessage: ${isDelete.errMessage}`)
+            }
+        },[isDelete]
+    );
 
     return (
         <>

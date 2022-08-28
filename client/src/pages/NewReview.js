@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { callGetMenuDetailAPI, callNewReviewAPI} from './../apis/MtvsCafeteriaAPICalls';
+import { RESET_STATE } from './../modules/ReviewModule';
 function NewReview(){
     const menuDetail = useSelector(state => state.menuReducer);
     const results = useSelector(state => state.reviewReducer);
@@ -36,6 +37,7 @@ function NewReview(){
     useEffect(
         ()=>{
             dispatch(callGetMenuDetailAPI(menuCode));
+            dispatch({type:RESET_STATE});
         }
         , []
     );
