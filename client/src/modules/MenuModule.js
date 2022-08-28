@@ -11,6 +11,7 @@ const actions = createActions({
     [GET_MENUS_DETAILS]: () => {}
 })
 
+
 const menuReducer = handleActions(
     {
         [GET_MENUS]: (state, {payload}) => {

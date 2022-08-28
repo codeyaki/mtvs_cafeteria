@@ -11,13 +11,14 @@ exports.selectMenuList = async (req, res) => {
         offset: offset,
         limit: limit
     }
-
+    const host = `http://${req.headers.host}`;
+    console.log(host);
     const results = await MenuService.selectMenuList(limitOffset);
 
     const isNext = (offset+limit < results.count) ? true : false;
     const isPrevious = (offset-limit >= 0) ? true : false;
-    const next = isNext ? serverPath.rootUrl + '/menus' + '?offset=' + (offset+limit) + "&limit=" + limit : null;
-    const previous = isPrevious ? serverPath.rootUrl + '/menus' + '?offset=' + (offset-limit) + "&limit=" + limit : null;
+    const next = isNext ? host + '/menus' + '?offset=' + (offset+limit) + "&limit=" + limit : null;
+    const previous = isPrevious ? host + '/menus' + '?offset=' + (offset-limit) + "&limit=" + limit : null;
     const resBody = {
         count: results.count,
         next: next,

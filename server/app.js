@@ -8,6 +8,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
+
 const WeekMenuRouter = require('./src/routes/week-menu-route');
 app.use('/week-menus', WeekMenuRouter);
 
@@ -16,6 +17,7 @@ app.use('/menus', menuRouter);
 
 const reviewRouter = require('./src/routes/review-route.js');
 app.use('/reviews', reviewRouter);
+
 
 const port = 8888;
 const host = "0.0.0.0";

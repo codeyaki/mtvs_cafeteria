@@ -15,11 +15,12 @@ exports.selectWeekMenuList = async (req, res, next) => {
     if(results.count == 0){
         PrintError.errorNotFound(res)
     }
+    const host = `http://${req.headers.host}`;
     const isPrevious = (offset+limit < results.count) ? true : false;
     const isNext = (offset-limit >= 0) ? true : false;
     console.log(isNext);
-    const previousWeek = isPrevious ? serverPath.rootUrl + '/week-menus' + '?offset=' + (offset+limit) + "&limit=" + limit : null;
-    const nextWeek = isNext ? serverPath.rootUrl + '/week-menus' + '?offset=' + (offset-limit) + "&limit=" + limit : null;
+    const previousWeek = isPrevious ? host + '/week-menus' + '?offset=' + (offset+limit) + "&limit=" + limit : null;
+    const nextWeek = isNext ? host + '/week-menus' + '?offset=' + (offset-limit) + "&limit=" + limit : null;
     const resBody = {
         count: results.count,
         nextWeek: nextWeek,

@@ -1,10 +1,12 @@
+const { datetimeFormat } = require("../../utility/date-format");
+
 class ReviewResDTO{
     reviewCode;
     nickname;
-    password;
     reviewScore;
     reviewDetails;
-    menuCode;
+    clientIp;
+    insertDate;
     // constructor(data){
     //     this.reviewCode = data.reviewCode;
     //     this.nickname = data.nickname;
@@ -16,11 +18,10 @@ class ReviewResDTO{
     constructor(resultMap) {
         this.reviewCode = resultMap.REVIEW_CODE;
         this.nickname = resultMap.NICKNAME;
-        this.password = resultMap.PASSWORD;
         this.reviewScore = resultMap.REVIEW_SCORE;
         this.reviewDetails = resultMap.REVIEW_DETAILS;
-        this.menuCode = resultMap.MENU_CODE;
-        
+        this.clientIp = resultMap.CLIENT_IP;
+        this.insertDate = datetimeFormat(resultMap.INSERT_DATE);
     }
     
 }
