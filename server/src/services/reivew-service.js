@@ -19,11 +19,11 @@ exports.newReivew = (reviewReqDTO) => {
             const results = await ReviewRepo.insertReview(connection, reviewReqDTO);
             console.log({results});
             if(results.affectedRows > 0){
-                resolve(results.insertId);
+                resolve(true);
                 connection.commit();
             }
             connection.rollback();
-            throw new Error();
+            reject("error!");
         } catch (err){
             // console.log(err.message);
             connection.rollback();
