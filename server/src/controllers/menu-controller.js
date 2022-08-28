@@ -12,7 +12,6 @@ exports.selectMenuList = async (req, res) => {
         limit: limit
     }
     const host = `http://${req.headers.host}`;
-    console.log(host);
     const results = await MenuService.selectMenuList(limitOffset);
 
     const isNext = (offset+limit < results.count) ? true : false;

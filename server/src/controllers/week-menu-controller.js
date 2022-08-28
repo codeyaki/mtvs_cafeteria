@@ -18,7 +18,6 @@ exports.selectWeekMenuList = async (req, res, next) => {
     const host = `http://${req.headers.host}`;
     const isPrevious = (offset+limit < results.count) ? true : false;
     const isNext = (offset-limit >= 0) ? true : false;
-    console.log(isNext);
     const previousWeek = isPrevious ? host + '/week-menus' + '?offset=' + (offset+limit) + "&limit=" + limit : null;
     const nextWeek = isNext ? host + '/week-menus' + '?offset=' + (offset-limit) + "&limit=" + limit : null;
     const resBody = {

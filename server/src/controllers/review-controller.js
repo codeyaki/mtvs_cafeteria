@@ -24,7 +24,6 @@ exports.newReivew = async (req, res, next) => {
     try{
         if(nickname && password && score && details && menuCode){
             const reviewReqDTO = new ReviewReqDTO(menuCode, nickname, password, score, details, clientIp, insertDate);
-            console.log(reviewReqDTO);
             const insertedId = await ReviewService.newReivew(reviewReqDTO);
             return res.status(httpStatus.CREATED).json({results:"success", insertedId:menuCode});
         }
@@ -38,4 +37,18 @@ exports.newReivew = async (req, res, next) => {
     // console.log(reviewReqDTO.clientIp.length);
     
     // const results = await ReviewService.newReivew.()
+}
+
+exports.deleteReivew = async (req, res) => {
+    const {password, reviewCode} = req.body;
+    try{
+        const result = await ReviewService.deleteReivew(password, reviewCode);
+        if(result){
+            res.status(httpStatus.OK).json({results: 'success'});
+        }
+    } catch(err) {
+        res.status(httpStatus.CONFLICT).json({results: 'error', errCode: err.errCode, errMessage: err.errMessage});
+    }
+
+
 }

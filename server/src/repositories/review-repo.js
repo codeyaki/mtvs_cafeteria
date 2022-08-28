@@ -18,6 +18,18 @@ exports.selectReviewByMenuCode = (connection, menuCode) => {
     })
 }
 
+exports.selectPw = (connection, reviewCode) => {
+    return new Promise((resolve, reject) => {
+        connection.query(ReviewQuery.selectPw(), [reviewCode], (err, results) => {
+            if(err){
+                console.log(err);
+                return reject(err);
+            }
+            resolve(results[0].PASSWORD);
+        })
+    })
+}
+
 
 
 exports.averageReviewScore = (connection, menuCode) => {
@@ -39,8 +51,21 @@ exports.insertReview = (connection, reviewResDTO) => {
                 console.log(err);
                 return reject(err);
             }
-            console.log(results);
+            // console.log(results);
             resolve(results);
+        })
+    })
+}
+
+exports.deleteReivew = (connection, reviewCode) => {
+    return new Promise((resovle, reject) => {
+        connection.query(ReviewQuery.deleteReivew(), [reviewCode], (err, results, fields) => {
+            if(err){
+                console.log(err);
+                return reject(err);
+            }
+            // console.log(results);
+            resovle(results);
         })
     })
 }

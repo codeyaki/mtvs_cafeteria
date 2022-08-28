@@ -42,7 +42,7 @@ exports.selectMenuByMenuCode = (connection, menuCode) => {
                 console.error(err);
                 return reject(err);
             }
-            console.log(results);
+            // console.log(results);
             const menu = new MenuAndCategoryResDTO({
                 menuCode: results[0].MENU_CODE,
                 menuName: results[0].MENU_NAME,

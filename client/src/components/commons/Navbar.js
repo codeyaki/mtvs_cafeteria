@@ -3,7 +3,7 @@ const { NavLink } = require("react-router-dom");
 
 function Navbar(){
     const activeStyle = {
-        backgroundColor: 'dodgerblue',
+        backgroundColor: 'gray',
         borderRadius: '5px',
         color: 'white',
     }
