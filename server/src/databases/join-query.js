@@ -9,6 +9,7 @@ exports.selectDayplanAndMenuPlanAndMenu = () => {
                 )
           JOIN TBL_DAYPLAN B ON(A.WEEK_CODE = B.WEEK_CODE)
           JOIN TBL_MENUPLAN C ON(B.WEEK_CODE = C.WEEK_CODE)
+         WHERE C.CATEGORYCODE AESC
     `
 }
 
@@ -29,7 +30,8 @@ exports.selectDayplanMenuList = () => {
           JOIN TBL_MENU C ON(B.MENU_CODE = C.MENU_CODE)
           JOIN TBL_CATEGORY D ON(C.CATEGORY_CODE = D.CATEGORY_CODE)
           LEFT JOIN TBL_REVIEW E ON(C.MENU_CODE = E.MENU_CODE)
-          GROUP BY C.MENU_CODE;
+          GROUP BY C.MENU_CODE
+          ORDER BY D.CATEGORY_CODE, C.MENU_NAME
     `;   
 
 }
