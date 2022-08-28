@@ -1,5 +1,4 @@
 const httpStatus = require('http-status');
-const serverPath = require('../../app.js');
 const MenuService = require('../services/menu-service.js');
 
 

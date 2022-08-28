@@ -1,7 +1,6 @@
 const HttpStatus = require('http-status');
 const WeekMenuService = require('../services/week-menu-service');
 const PrintError = require('../printer/print-error');
-const serverPath = require('../../app');
 
 
 exports.selectWeekMenuList = async (req, res, next) => {

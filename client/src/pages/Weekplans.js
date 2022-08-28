@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { callGetWeekplanAPI } from '../apis/MtvsCafeteriaAPICalls';
 import Dayplan from './../components/card/Dayplan';
 import { RESET_STATE } from './../modules/ReviewModule';
+import { RESET_MENUS } from './../modules/MenuModule';
 function Weekplans(){
     const results = useSelector(state => state.weekplanReducer);
     const weekplan = results?.results;
@@ -12,6 +13,7 @@ function Weekplans(){
         ()=> { 
             dispatch(callGetWeekplanAPI());
             dispatch({type:RESET_STATE});
+            dispatch({type:RESET_MENUS});
         }
         , []
     );

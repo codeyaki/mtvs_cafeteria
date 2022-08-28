@@ -11,7 +11,7 @@ exports.selectReviewByMenuCode = (connection, menuCode) => {
 
             let reviewList = [];
             results.map((result) => reviewList.push(new ReviewResDTO(result)));
-            console.log(reviewList);
+            // console.log(reviewList);
             
             resolve(reviewList);
         })

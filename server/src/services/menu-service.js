@@ -1,6 +1,5 @@
 const MenuRepo = require('../repositories/menu-repo.js');
 const getConnection = require('../databases/connection');
-const MenuResDTO = require('../dto/response/menu-res-dto.js');
 
 exports.selectMenuList = async (limitOffset) => {
     const connection = getConnection();

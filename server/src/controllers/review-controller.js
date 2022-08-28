@@ -18,13 +18,11 @@ exports.findReviewListByMenuCode = async (req, res, next) => {
 exports.newReivew = async (req, res, next) => {
     const {nickname, password, score, details, menuCode} = req.body;
     const clientIp = req.connection.remoteAddress; // req.ip
-    const host = `http://${req.headers.host}`;
     const insertDate = new Date()
     // console.log(req.ip);
     try{
         if(nickname && password && score && details && menuCode){
             const reviewReqDTO = new ReviewReqDTO(menuCode, nickname, password, score, details, clientIp, insertDate);
-            const insertedId = await ReviewService.newReivew(reviewReqDTO);
             return res.status(httpStatus.CREATED).json({results:"success", insertedId:menuCode});
         }
         throw {errCode: -9998, errMessage: "값이 비어있습니다."};
