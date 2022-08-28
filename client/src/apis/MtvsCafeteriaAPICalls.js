@@ -50,13 +50,13 @@ export function callNewReviewAPI(formData){
     }
 }
 
-export function callDeleteReivewAPI(password){
+export function callDeleteReivewAPI(reqData){
     const requestURL = rootPath + '/reviews'
     return async function deleteReview(dispatch, getState){
         const results = await fetch(requestURL, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(password)
+            body: JSON.stringify(reqData)
         }).then(res => res.json());
         console.log(results);
         dispatch({type:DELETE_REVIEW, payload: results});
