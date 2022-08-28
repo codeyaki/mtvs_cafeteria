@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { callGetMenuDetailAPI } from './../apis/MtvsCafeteriaAPICalls';
+import { callDeleteReivewAPI, callGetMenuDetailAPI } from './../apis/MtvsCafeteriaAPICalls';
 import { useEffect } from 'react';
 
 const { useParams, Link } = require("react-router-dom");
@@ -17,6 +17,14 @@ function MenuDetails() {
         }
         ,[]
     );
+    const handlerDelete = () => {
+        const password = prompt("비밀번호를 입력하세요");
+        const requestData = {password: password}
+        dispatch(callDeleteReivewAPI(requestData));
+        console.log(password);
+        
+    }
+
     return (
         <>
             <h2> {result.menu?.menuName}의 리뷰 확인하기</h2>
@@ -33,6 +41,11 @@ function MenuDetails() {
                                 <h5 className='reivewElement'>평점: {review.reviewScore} </h5>
                                 <h5 className='reivewElement'>"{review.reviewDetails}" </h5>
                                 <h6 className='reviewElement'>작성한 날짜: {review.insertDate}</h6>
+                                <button className='deleteButton' onClick={handlerDelete}>
+                                    <svg width="20" height="20" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 0.875C6.25195 0.875 0.375 6.75195 0.375 14C0.375 21.248 6.25195 27.125 13.5 27.125C20.748 27.125 26.625 21.248 26.625 14C26.625 6.75195 20.748 0.875 13.5 0.875ZM19.125 14.7031C19.125 14.832 19.0195 14.9375 18.8906 14.9375H8.10938C7.98047 14.9375 7.875 14.832 7.875 14.7031V13.2969C7.875 13.168 7.98047 13.0625 8.10938 13.0625H18.8906C19.0195 13.0625 19.125 13.168 19.125 13.2969V14.7031Z" fill="#F24E1E"/>
+                                    </svg>
+                                </button>
                             </li>);
                         })}
                     </ul>

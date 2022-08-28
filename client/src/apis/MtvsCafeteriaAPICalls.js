@@ -1,6 +1,6 @@
 import { GET_WEEKPLAN } from '../modules/WeekPlanModule';
 import { GET_MENUS, GET_MENUS_DETAILS } from './../modules/MenuModule';
-import { NEW_REVIEW } from './../modules/ReviewModule';
+import { DELETE_REVIEW, NEW_REVIEW } from './../modules/ReviewModule';
 // const rootPath = 'https://mtvscafeteria-api.run.goorm.io'
 /** 테스트용 url */
 // const rootPath = 'http://127.0.0.1:8888';
@@ -47,5 +47,19 @@ export function callNewReviewAPI(formData){
         }).then(res => res.json());
         console.log(results);
         dispatch({type:NEW_REVIEW, payload:results});
+    }
+}
+
+export function callDeleteReivewAPI(password){
+    const requestURL = rootPath + '/reviews'
+    return async function deleteReview(dispatch, getState){
+        const results = await fetch(requestURL, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(password)
+        }).then(res => res.json());
+        console.log(results);
+        dispatch({type:DELETE_REVIEW, payload: results});
+
     }
 }
