@@ -2,15 +2,17 @@ const { NavLink } = require("react-router-dom");
 
 
 function Navbar(){
-
+    const activeStyle = {
+        backgroundColor: 'dodgerblue',
+        borderRadius: '5px',
+        color: 'white',
+    }
     return (
-        <div>
-            <ul>
-                <li><NavLink to="/">메인</NavLink></li>
-                <li><NavLink to="/weekplans">식당 주간 식단표</NavLink></li>
-                <li><NavLink to="/menus">전체 메뉴 조회하기</NavLink></li>
-            </ul>
-        </div>
+        <nav>
+            <NavLink align='center' className="navATag" to="/" style={ ({ isActive }) => isActive? activeStyle: undefined }>메인</NavLink>
+            <NavLink align='center' className="navATag" to="/weekplans" style={ ({ isActive }) => isActive? activeStyle: undefined }>식당 주간 식단표</NavLink>
+            <NavLink align='center' className="navATag" to="/menus" style={ ({ isActive }) => isActive? activeStyle: undefined }>전체 메뉴 조회하기</NavLink>
+        </nav>
     );
 }
 

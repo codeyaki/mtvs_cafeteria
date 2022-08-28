@@ -29,8 +29,18 @@ h5{
 }
 h6{
   margin: 0px;
-}p{
+}
+p{
   margin: 0px;
+}
+a{
+  text-decoration-line: none;
+  color: black;
+  transition-duration: 500ms;
+}
+a:hover{
+  background-color: dodgerblue;
+  border-radius: 5px;
 }
 
 ul{
@@ -64,6 +74,7 @@ li{
   /* padding: 8px; */
   border: 1px solid black;
   border-radius: 20px;
+  margin-top: 10px;
 }
 
 .dayplanCard{
@@ -93,5 +104,58 @@ li{
 
 .reivewElement{
   margin-left: 8px;
+}
 
+button{
+  width: 100px;
+  margin-right: 20px;
+  height: 50px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px black;
+  transition-duration: 500ms;
+  margin: 10px;
+}
+button:active{
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+}
+
+.notiveBox{
+  margin-top: 20px;
+}
+
+
+header{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vmax;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  height: 10vmin;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.navATag{
+  width: 30%;
+  height: 100%;
+  font-size: 2vmax;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  height: 5vmax;
 }

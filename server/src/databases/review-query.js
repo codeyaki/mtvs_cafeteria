@@ -7,7 +7,7 @@ exports.selectReviewByMenuCode = () => {
              , A.REVIEW_CODE
              , A.REVIEW_SCORE
              , A.REVIEW_DETAILS
-             , A.CLIENT_IP
+             , INET_NTOA(A.CLIENT_IP)
              , A.INSERT_DATE
           FROM TBL_REVIEW A
          WHERE A.MENU_CODE = ?
@@ -36,7 +36,7 @@ exports.insertReview = (reviewResDTO) => {
         (
           0, \'${reviewResDTO.nickname}\', \'${reviewResDTO.password}\' 
         , ${reviewResDTO.score}, \'${reviewResDTO.details}\', ${reviewResDTO.menuCode}
-        , \'${reviewResDTO.clientIp}\', \'${reviewResDTO.insertDate}\'
+        , INET_ATON('${reviewResDTO.clientIp}'), \'${reviewResDTO.insertDate}\'
         )
     `;
 }

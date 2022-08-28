@@ -3,7 +3,8 @@ import { GET_MENUS, GET_MENUS_DETAILS } from './../modules/MenuModule';
 import { NEW_REVIEW } from './../modules/ReviewModule';
 // const rootPath = 'https://mtvscafeteria-api.run.goorm.io'
 /** 테스트용 url */
-const rootPath = 'http://127.0.0.1:8888'
+// const rootPath = 'http://127.0.0.1:8888';
+const rootPath = 'http://172.30.1.54:8888';
 
 export function callGetWeekplanAPI(url){
     const requestURL = (url || rootPath) + '/week-menus';

@@ -41,7 +41,9 @@ function MenuDetails() {
                     
                 </>
             }
-            <button onClick={ () => window.location.href=`/review/new/${menuCode}`}>리뷰 작성하기</button>
+            <div className='buttonBox'>
+                <button onClick={ () => window.location.href=`/review/new/${menuCode}`}>리뷰 작성하기</button>
+            </div>
         </>
 
     );
