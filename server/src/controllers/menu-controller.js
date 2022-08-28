@@ -11,7 +11,7 @@ exports.selectMenuList = async (req, res) => {
         offset: offset,
         limit: limit
     }
-    const host = `https://${req.headers.host}`;
+    const host = `http://${req.headers.host}`;
     console.log(host);
     const results = await MenuService.selectMenuList(limitOffset);
 
