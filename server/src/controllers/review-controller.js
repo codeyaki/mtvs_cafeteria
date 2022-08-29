@@ -17,6 +17,7 @@ exports.findReviewListByMenuCode = async (req, res, next) => {
 
 exports.newReivew = async (req, res, next) => {
     const {nickname, password, score, details, menuCode} = req.body;
+    
     const clientIp = req.connection.remoteAddress; // req.ip
     const insertDate = new Date()
     // console.log(req.ip);
@@ -30,10 +31,7 @@ exports.newReivew = async (req, res, next) => {
         }
         throw {errCode: -9998, errMessage: "값이 비어있습니다."};
     } catch(err){
-        if(err.message?.match("ER_DUP_ENTRY")){
-            return res.status(httpStatus.CONFLICT).json({results:"error", code:-9999, message: '같은 ip는 하나의 메뉴에 한개의 리뷰만 가능합니다.'})
-        }
-        return res.status(httpStatus.BAD_REQUEST).json({results:"error", code: err.errCode, message: err.errMessage})
+        return res.status(httpStatus.CONFLICT).json({results:"error", code: err.errCode, message: err.errMessage})
     }
     // console.log(reviewReqDTO.clientIp.length);
     

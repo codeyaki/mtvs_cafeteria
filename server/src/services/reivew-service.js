@@ -12,26 +12,24 @@ exports.findReviewListByMenuCode = async(menuCode) => {
     return {avgScore: avgScore, result: result};
 }
 
-exports.newReivew = (reviewReqDTO) => {
+exports.newReivew = async (reviewReqDTO) => {
     const connection = getConnection();
-    return new Promise(async(resolve, reject) => {
-        try{
-            const results = await ReviewRepo.insertReview(connection, reviewReqDTO);
-            console.log({results});
-            if(results.affectedRows > 0){
-                resolve(true);
-                connection.commit();
-            }
-            connection.rollback();
-            reject("error!");
-        } catch (err){
-            // console.log(err.message);
-            connection.rollback();
-            reject(err);
-        } finally {
-            connection.end();
+    try{
+        const results = await ReviewRepo.insertReview(connection, reviewReqDTO);
+        console.log({results});
+        if(results.affectedRows == 0){
+            connection.commit();
+            return true;
         }
-    })
+        connection.rollback();
+        throw {errCode: -9000, errMessage:"데이터베이스에 문제가 발생했습니다."};
+    } catch (err){
+        // console.log(err.message);
+        connection.rollback();
+        throw {errCode: -9999, errMessage:"하나의 메뉴에 ip당 한개의 리뷰만 달 수 있습니다."};
+    } finally {
+        connection.end();
+    }
 }
 
 exports.deleteReivew = async (password, reviewCode) => {
@@ -44,7 +42,7 @@ exports.deleteReivew = async (password, reviewCode) => {
             return(true);
         }
     }
-    throw {errCode: -1997, errMessage: "패스워드가 틀렸습니다."}
+    throw {errCode: -9997, errMessage: "패스워드가 틀렸습니다."}
     // console.log(encryptedPW)
 
 }
