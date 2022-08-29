@@ -29,9 +29,9 @@ exports.newReivew = async (req, res, next) => {
                 return res.status(httpStatus.CREATED).json({results:"success", insertedId:menuCode});
             }
         }
-        throw {errCode: -9998, errMessage: "값이 비어있습니다."};
+        throw {errCode: -9998, errMessage: "입력값이 비어있습니다."};
     } catch(err){
-        return res.status(httpStatus.CONFLICT).json({results:"error", code: err.errCode, message: err.errMessage})
+        return res.status(httpStatus.CONFLICT).json({results:"error", errCode: err.errCode, errMessage: err.errMessage})
     }
     // console.log(reviewReqDTO.clientIp.length);
     

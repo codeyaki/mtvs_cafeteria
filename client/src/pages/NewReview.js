@@ -43,7 +43,7 @@ function NewReview(){
     useEffect(
         () => {
             if(results.results === 'error'){
-                alert(`에러 발생 \n에러 코드 : ${results.code} \n에러 메시지 : ${results.message}`)
+                alert(`에러 발생 \n에러 코드 : ${results.errCode} \n에러 메시지 : ${results.errMessage}`)
             } else if ( results.results === "success"){
                 alert(`정상적으로 추가되었습니다.`);
                 window.location.href = `/menus/${results.insertedId}`

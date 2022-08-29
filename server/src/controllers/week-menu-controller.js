@@ -12,8 +12,9 @@ exports.selectWeekMenuList = async (req, res, next) => {
     const results = await WeekMenuService.selectWeekMenuList(requestEntity);
     if(results.count == 0){
         return res.status(HttpStatus.NOT_FOUND).json({
-            status: HttpStatus.NOT_FOUND,
-            message: `data not found`
+            results: 'error',
+            errCode: -9001,
+            errMessage: "결과가 비어있습니다."
         });
     }
     const host = `http://${req.headers.host}`;
