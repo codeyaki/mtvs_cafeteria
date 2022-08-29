@@ -3,9 +3,8 @@ const MenuService = require('../services/menu-service.js');
 
 
 exports.selectMenuList = async (req, res) => {
-    const rawCount = 40;
-    const offset = parseInt(req.query.offset || '0');
-    const limit = parseInt(req.query.limit || rawCount);
+    const offset = parseInt(req.query.offset || 0);
+    const limit = parseInt(req.query.limit || 40);
     const limitOffset = {
         offset: offset,
         limit: limit
