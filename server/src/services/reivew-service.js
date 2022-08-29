@@ -27,6 +27,7 @@ exports.newReivew = async (reviewReqDTO) => {
     } catch (err){
         // console.log(err.message);
         connection.rollback();
+        console.log(err);
         throw {errCode: -9999, errMessage:"하나의 메뉴에 ip당 한개의 리뷰만 달 수 있습니다."};
     } finally {
         connection.end();

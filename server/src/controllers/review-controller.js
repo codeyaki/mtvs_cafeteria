@@ -18,7 +18,7 @@ exports.findReviewListByMenuCode = async (req, res, next) => {
 exports.newReivew = async (req, res, next) => {
     const {nickname, password, score, details, menuCode} = req.body;
     
-    const clientIp = req.connection.remoteAddress; // req.ip
+    const clientIp = req.ip; // req.ip
     const insertDate = new Date()
     // console.log(req.ip);
     try{
