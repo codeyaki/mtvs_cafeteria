@@ -17,7 +17,7 @@ exports.selectReviewByMenuCode = () => {
 exports.averageReviewScore = () => {
     return `
         SELECT 
-               ROUND(AVG(A.REVIEW_SCORE),1)
+               ROUND(AVG(A.REVIEW_SCORE),2) 'AVG_SCORE'
           FROM TBL_REVIEW A
          WHERE A.MENU_CODE = ?
     `;

@@ -20,7 +20,7 @@ exports.selectDayplanMenuList = () => {
              , C.MENU_NAME
              , D.CATEGORY_CODE
              , D.CATEGORY_NAME
-             , IFNULL(AVG(E.REVIEW_SCORE), 0) 'AVG_SCORE'
+             , ROUND(IFNULL(AVG(E.REVIEW_SCORE), 0),1) 'AVG_SCORE'
           FROM (SELECT * 
                   FROM TBL_DAYPLAN 
                  WHERE DAYPLAN_CODE = ?

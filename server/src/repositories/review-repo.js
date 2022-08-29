@@ -39,7 +39,7 @@ exports.averageReviewScore = (connection, menuCode) => {
                 console.error(err);
                 return reject(err);
             }
-            resolve(results[0]['AVG(A.REVIEW_SCORE)']);
+            resolve(results[0]['AVG_SCORE']);
         })
     })
 }
