@@ -44,13 +44,15 @@ exports.deleteReivew = async (password, reviewCode) => {
         const results = await ReviewRepo.deleteReivew(connection, reviewCode);
         if(results.affectedRows == 1){
             connection.commit();
+            connection.end();
             return(true);
         }
         connection.rollback();
+        connection.end();
         throw {errCode: -9000, errMessage:"데이터베이스에 문제가 발생했습니다."};
     }
     
-    connection.end
+    connection.end();
     throw {errCode: -9997, errMessage: "패스워드가 틀렸습니다."}
     // console.log(encryptedPW)
 
