@@ -52,7 +52,7 @@ exports.insertReview = (connection, reviewResDTO) => {
                 return reject(err);
             }
             // console.log(results);
-            resolve(results);
+            return resolve(results);
         })
     })
 }

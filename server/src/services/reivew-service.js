@@ -14,10 +14,11 @@ exports.findReviewListByMenuCode = async(menuCode) => {
 
 exports.newReivew = async (reviewReqDTO) => {
     const connection = getConnection();
+   
     try{
+        connection.beginTransaction();
         const results = await ReviewRepo.insertReview(connection, reviewReqDTO);
-        console.log({results});
-        if(results.affectedRows == 0){
+        if(results.affectedRows == 1){
             connection.commit();
             return true;
         }
@@ -35,13 +36,20 @@ exports.newReivew = async (reviewReqDTO) => {
 exports.deleteReivew = async (password, reviewCode) => {
     const connection = getConnection();
     const encryptedPW = await ReviewRepo.selectPw(connection, reviewCode);
+    
     if(Bcrypt.compareSync(password, encryptedPW)){
         // console.log('통과');
+        connection.beginTransaction();
         const results = await ReviewRepo.deleteReivew(connection, reviewCode);
         if(results.affectedRows == 1){
+            connection.commit();
             return(true);
         }
+        connection.rollback();
+        throw {errCode: -9000, errMessage:"데이터베이스에 문제가 발생했습니다."};
     }
+    
+    connection.end
     throw {errCode: -9997, errMessage: "패스워드가 틀렸습니다."}
     // console.log(encryptedPW)
 

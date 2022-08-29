@@ -56,28 +56,31 @@ function NewReview(){
 
     return (
         <article>
-            <div className='buttonBox'>
-                <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
-            </div>
-            <h1>{menuDetail.menu?.menuName} 리뷰 추가하기</h1>
-            <label>닉네임: </label>
-            <input type="text" name="nickname" id="nickname" placeholder='닉네임을 입력하세요' onChange={onChangehandler}/>
-            <br/>
-            <label>비밀번호 :</label>
-            <input type="password" name="password" is="password" onChange={onChangehandler} />
-            <br/>
-            <label>평점 :</label>
-            <select name="score" id="score" onClick={onChangehandler}>
-                <option value="none" >별점을 선택해주세요</option>
-                <option value="1">★</option>
-                <option value="2">★★</option>
-                <option value="3">★★★</option>
-                <option value="4">★★★★</option>
-                <option value="5">★★★★★</option>
-            </select>
-            <br/>
-            <label>리뷰 내용</label>
-            <input className='reviewDetails' id="details" type="text" name="details" onChange={onChangehandler} ></input>
+            <from>
+                <div className='buttonBox'>
+                    <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
+                </div>
+                <h1>{menuDetail.menu?.menuName} 리뷰 추가하기</h1>
+                <label>닉네임: </label>
+                <input type="text" name="nickname" id="nickname" placeholder='닉네임을 입력하세요' onChange={onChangehandler}/>
+                <br/>
+                <label>비밀번호 :</label>
+                <input type="password" name="password" is="password" onChange={onChangehandler} />
+                <br/>
+                <label>평점 :</label>
+                <select name="score" id="score" onClick={onChangehandler}>
+                    <option value="none" >별점을 선택해주세요</option>
+                    <option value="1">★</option>
+                    <option value="2">★★</option>
+                    <option value="3">★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="5">★★★★★</option>
+                </select>
+                <br/>
+                <label>리뷰 내용</label>
+                <br/>
+                <textarea className='reviewDetails' id="details" row="50" cols="50" name="details" onChange={onChangehandler} ></textarea>
+            </from>
             <br/>
             <button onClick={sendFormData}>작성 완료</button>
             
