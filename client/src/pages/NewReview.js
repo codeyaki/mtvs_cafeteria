@@ -56,7 +56,7 @@ function NewReview(){
 
     return (
         <article>
-            <from>
+            <form>
                 <div className='buttonBox'>
                     <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
                 </div>
@@ -80,7 +80,7 @@ function NewReview(){
                 <label>리뷰 내용</label>
                 <br/>
                 <textarea className='reviewDetails' id="details" row="50" cols="50" name="details" onChange={onChangehandler} ></textarea>
-            </from>
+            </form>
             <br/>
             <button onClick={sendFormData}>작성 완료</button>
             
