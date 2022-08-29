@@ -56,10 +56,10 @@ function NewReview(){
 
     return (
         <article>
+            <div className='buttonBox'>
+                <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
+            </div>
             <form>
-                <div className='buttonBox'>
-                    <button onClick={() => window.location.href=`/menus/${menuCode}`}>뒤로가기</button>
-                </div>
                 <h1>{menuDetail.menu?.menuName} 리뷰 추가하기</h1>
                 <label>닉네임: </label>
                 <input type="text" name="nickname" id="nickname" placeholder='닉네임을 입력하세요' onChange={onChangehandler}/>
