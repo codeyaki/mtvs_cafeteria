@@ -12,31 +12,21 @@ exports.selectWeekMenuList = async (requestEntity) => {
     const count = await WeekPlanRepository.countWeekplan(connection);
     // 주간 계획 관련 정보 조회
     const weekplanResult = await WeekPlanRepository.selectWeekplan(connection, requestEntity);
-    if(!weekplanResult){
-        return ({count:count, results:null});
-    }
     // 주간을 토대로 일간 메뉴 정보 리스트 조회
     const dayplanResultList = await DayplanRepository.selectDayplanList(connection,weekplanResult.WEEKPLAN_CODE);
     let dayplanList = [];
-    // console.log(dayplanResultList);
     // 주에 몇번의 식사가 있는지 조회
     for (let i = 0; i < dayplanResultList.length; i++){
         const menuAndDayplanResultList = await DayplanMenuRepository.selectDayplanMenuList(connection, dayplanResultList[i]);
-        // console.log(menuAndDayplanResultList);
         let dayplan = new DayplanResDTO(dayplanResultList[i]);
         let menuList = [];
         // 한번의 식사에 제공되는 메뉴 조회
         for(let j = 0; j < menuAndDayplanResultList.length; j++){
-            let menuResDTO = new MenuResDTO();
-            menuResDTO.setMenuCode(menuAndDayplanResultList[j].MENU_CODE);
-            menuResDTO.setMenuName(menuAndDayplanResultList[j].MENU_NAME);
-            menuResDTO.setCategoryCode(menuAndDayplanResultList[j].CATEGORY_CODE);
-            menuResDTO.setAvgScore(menuAndDayplanResultList[j].AVG_SCORE)
+            let menuResDTO = new MenuResDTO(menuAndDayplanResultList[j]);
             menuList.push(menuResDTO);
         }
         dayplan.setMenuList(menuList);
         dayplanList.push({...dayplan});
-        // console.log(dayplanList);
     }
     let weekplan = new WeekplanResDTO(weekplanResult);
     weekplan.setDays(dayplanList);

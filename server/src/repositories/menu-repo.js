@@ -23,11 +23,7 @@ exports.selectMenuList = (connection, limitOffset) => {
             }
             let menuList = []
             results.map(menu => {
-                let menudto = new MenuResDTO();
-                menudto.setMenuCode(menu.MENU_CODE);
-                menudto.setMenuName(menu.MENU_NAME);
-                menudto.setCategoryCode(menu.CATEGORY_CODE);
-                menudto.setAvgScore(menu.AVG_SCORE)
+                let menudto = new MenuResDTO(menu);
                 menuList.push(menudto);
             });
             resolve(menuList);
