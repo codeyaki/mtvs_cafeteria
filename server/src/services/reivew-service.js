@@ -3,7 +3,6 @@ const getConnection = require ('../databases/connection');
 const Bcrypt = require('bcrypt');
 
 
-
 exports.findReviewListByMenuCode = async(menuCode) => {
     const connection = getConnection();
     const avgScore = await ReviewRepo.averageReviewScore(connection, menuCode);

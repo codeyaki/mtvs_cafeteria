@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const ReviewReqDTO = require('../dto/request/review-req-dto.js');
 const ReviewService = require('../services/reivew-service.js');
-
+const requestIp = require('request-ip');
 
 exports.findReviewListByMenuCode = async (req, res, next) => {
     const menuCode = req.params.menuCode;
@@ -17,8 +17,8 @@ exports.findReviewListByMenuCode = async (req, res, next) => {
 
 exports.newReivew = async (req, res, next) => {
     const {nickname, password, score, details, menuCode} = req.body;
-    
-    const clientIp = req.ip; // req.ip
+
+    const clientIp = requestIp.getClientIp(req);
     const insertDate = new Date()
     // console.log(req.ip);
     try{
